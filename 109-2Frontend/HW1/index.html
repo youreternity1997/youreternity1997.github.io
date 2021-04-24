@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="resume">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3">
+                    <div id="photo_div"><img id="user_img" src="./images/weihao.jpg"></div>
+                </div>
+                <div class="col-xl-9">
+                    <div id="introduction">
+                        <h2>Haung Wei Hao / 黃偉豪</h2>
+                        <!-- <div id="position"><h3>前後端工程師</h3></div> -->
+                        <p class="green_p">前後網頁端工程師</p>
+                        <div id="school"><h4>學歷 : 台灣大學 生物機電研究所</h4></div>
+                        <div id="interest"><h4>專長 : 前端、後端、機器學習 與 深度學習</h4></div>
+                        <div id="github">
+                            <img id="git_img" src="./images/github.jpg">
+                            <a class="a1" href="https://github.com/youreternity1997" title="My github">https://github.com/youreternity1997</a>
+                        </div>
+                        <div class="gmail">
+                            <img id="email_img" src="./images/email.jpg">
+                            <p class="p3">youreternity1997@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="skills_div">
+                <p id="header">專業技能</p>
+            </div>
+            <div class="row">
+                <div class="col-xl">
+                    <p class="skill">Front-end</p>
+                    <hr style="width: 350px; height:5px; background-color:black;">
+                    <ol>
+                        <li>HTML、CSS、Javascripts</li>
+                        <li>Bootstrap</li>
+                        <li>JQuery</li>
+                        <li>React.js</li>
+                        <li>Github</li>
+                        <li>tkinter</li>
+                    </ol>
+                </div>
+                <div class="col-xl">
+                    <p class="skill">Back-end</p>
+                    <hr style="width: 350px; height:5px; background-color: black;">
+                    <ol>
+                        <li>Python</li>
+                        <li>Node.js</li>
+                        <li>My SQL</li>
+                    </ol>
+                </div>
+                <div class="col-xl">
+                    <p class="skill">AI technology</p>
+                    <hr style="width: 350px; height:5px; background-color: black;">
+                    <ol>
+                        <li>Keras</li>
+                        <li>Tensorflow</li>
+                        <li>Pytorch</li>
+                        <li>YOlOv3、YOlOv4、YOlOv5</li>
+                        <li>Segmentation models</li>
+                    </ol>
+                </div>
+            </div>
+            <div id="Projects">
+                <p id="header">專案經歷</p>
+                <hr>
+                <div class="row">
+                    <div class='col-xl-5'>
+                        <div id='project-1-text-div'>
+                            <h4 class="text-title">人工智慧模型模擬麻醉醫生以評估手術中病人的清醒程度</h4>
+                            <p class="project-p">將台大醫院2014年15場手術資料當作實驗資料，並且使用Jupter Notebook軟體中 Python 的scikit-learn機器學習函式庫與其他函式庫等等，使用多種機器學習演算法模擬麻醉醫生以評估手術中病人的清醒程度，在手術中提供執刀醫生更準確的病人麻醉清醒程度。本研究使用多階線性回歸、調整超參數後的決策樹回歸和調整超參數後的隨機森林回歸演算法來模擬三位麻醉醫生並對測試資料進行預測評估，並比較各種回歸模型的決定係數與預測誤差，最終選擇最佳的回歸模型並加以保存，即可在手術中直接預測病人手術中的清醒程度，優化原本臨床上其中一種清醒程度評估方法(腦波雙頻指數(BIS))，提供執刀醫生更準確的病人麻醉清醒程度，避免病人在手術中甦醒且造成病人永遠的心理傷害。</p>
+                        </div>
+                        </div>
+                    <div class="col-xl-7">
+                        <div id='project-1-imgs-div'>
+                            <img id="img-AI-1" src="./images/AI-1.jpg">
+                            <img id="img-AI-2" src="./images/AI-2.jpg">
+                        </div>
+                    </div>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br>
+                <div class="row">
+                    <div class='col-xl-5'>
+                        <h4 class="text-title">老人跌倒辨識偵測模型</h4>
+                        <p class="project-p">跌倒偵測示警系統將以YOLO為架構，透過CNN卷積網路和SVM技術。CNN卷積網路學習分辨站立、坐姿、跌倒共三個姿態的特徵，接著使用SVM判斷3種姿態影像以進行跌倒偵測系統的人工智慧模型的訓練，藉由CNN卷積網路與SVN的結合，達到更準確的分類效果。可以即時發現，爭取更多的時間，搶救生命。其中隨著台灣邁入老年社會，而照護人員勢必缺乏，這時候藉由AI來輔助，可以省下許多人力，讓長照人員能做更有意義的關懷服務。</p>
+                    </div>
+                    <div class="col-xl-7">
+                        <img id="img-AI-3" src="./images/Falling_detector.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
