@@ -1,0 +1,46 @@
+
+.gameBase {
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid #777;
+
+    max-width: 2000px;
+    height: 600px;
+    background: white;
+    overflow: hidden;
+}
+ 
+.gamePad {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    background: #ddd;
+    overflow: hidden;
+    text-align: center;
+}
+ 
+.gamePad>div {
+    display: inline-block;
+    width: 24%;
+    font: bold 30px/2em "微軟正黑體";
+    text-align: center;
+    color: #fff;
+}
+ 
+.gamePad>div:nth-child(1) {
+    background: #f8d42d;
+}
+ 
+.gamePad>div:nth-child(2) {
+    background: #f82d58;
+}
+ 
+.gamePad>div:nth-child(3) {
+    background: #2d74f8;
+}
+ 
+.gamePad>div:nth-child(4) {
+    background: #2df8ae;
+}

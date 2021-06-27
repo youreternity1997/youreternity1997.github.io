@@ -1,0 +1,33 @@
+
+body{
+    /*color: aliceblue;*/
+    text-align:center;
+    background-image : url('https://a-static.besthdwallpaper.com/ni-de-ming-zi-qiangzhi-tw-2560x1600-2595_7.jpg');
+    background-position: center 0; 
+    /*background-repeat: no-repeat; */
+    background-attachment:fixed; 
+    background-size: cover;
+}
+/*
+#container marketing{
+    padding-bottom: 100px;
+}
+*/
+#all{
+    color: aliceblue;
+    position:absolute;
+    top:270px;
+    left:1050px;
+    padding-bottom: 100px;
+}
+#all h1{
+    font-size: 50px;
+}
+#courseTable{
+    font-size:1.5em;
+}
+
+td{
+    border-bottom:3px solid black;
+}
+

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Carousel Template for Bootstrap</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+      
+    <link rel="icon" href="favicon.ico">
+  
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="RPGgame/style.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Carousel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">  
+              
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home<span></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Movieschedule.html">Movie schedule<span></span></a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link" href="Youtuber.html">Youtuber video<span></span></a>
+              </li>     
+            <li class="nav-item">
+              <a class="nav-link" href="#">Game<span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+            
+            
+          <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+      <div class="container marketing"><br>
+         
+            <div class="gameBase"></div> <!--遊戲場景-->
+            <div class="gamePad"> <!--螢幕按鈕-->
+                <div class="up">上</div>
+                <div class="down">下</div>
+                <div class="left">左</div>
+                <div class="right">右</div>
+            </div>
+
+            <div class="message" style="margin: 0 auto; font-size: 50px;"></div>
+
+            <div class="material" style="opacity: 0;">
+
+                <div class="aircraft" style="width: 50px;"> <!--玩家樣式-->
+                    <img width="50px" height="60px" src="RPGgame/human.jpg">
+                </div>
+                <div class="enemy" style="width: 50px;"> <!--敵人樣式-->
+                    <img width="60px" height="50px" src="RPGgame/mon.jpg">
+                </div>
+                <div class="bullet" style="width: 10px;"> <!--子彈樣式-->
+                    <img width="30px" height="20px" src="RPGgame/bullets.jpg">
+                </div>
+            </div>          
+      </div>
+    </main>
+
+    <script type="text/javascript">
+    $(function() {
+        var gameStage = $(".gameBase"); /*將遊戲場景放入變數*/
+        var material = { /*用一個陣列，放入所有的遊戲素材，未來只要有此陣列開頭的就表示是素材*/
+            aircraft: $(".aircraft").prop("outerHTML"), /*存入玩家樣式*/
+            aircraftHeight: $(".aircraft").height(), /*存入玩家樣式高*/
+            enemy: $(".enemy").prop("outerHTML"), /*存入敵人樣式*/
+            enemytHeight: $(".aircraft").height(), /*存入敵人樣式高*/
+            enemytWidth : $(".aircraft").width(),
+            bullet: $(".bullet").prop("outerHTML") /*存入子彈樣式*/
+        };
+
+        var aircraft = $("<div>"); /*定義變數aircraft是一個div*/
+        aircraft.append(material.aircraft) /*aircraft的div放入玩家樣式*/
+        aircraft.addClass("impactArc"); /*此div增加impactArc的class，供之後碰撞偵測使用*/
+        aircraft.css({ /*增加主角div要放入的位置*/
+            "position": "absolute",
+            "left": 0,
+            "top": gameStage.height()/2 - material.aircraftHeight
+        });
+        $(".gameBase").append(aircraft); /*場景放入玩家*/
+ 
+        function inputEnemy() { /*放入敵人的函式，因為要重複放入敵人，因此寫成函式*/
+            var enemy = $("<div>"); /*定義變數enemy是一個div*/
+            enemy.append(material.enemy) /*enemy的div放入敵人的樣式*/
+            enemy.addClass("impact"); /*此div增加impact的class，供之後碰撞偵測使用*/
+            enemy.css({ /*增加敵人div要放入的位置*/
+                "position": "absolute",
+                "top": Math.floor(Math.random() * (gameStage.height()-material.enemytHeight)), /*隨機的高度*/
+                "right": -material.enemytWidth
+            })
+            $(".gameBase").append(enemy) /*場景放入敵人*/
+            enemy.stop().animate({ right: "+=1360"}, 3000, function() { enemy.remove(); }); /*敵人移動方式，會往場景底端位置移動，移出場景後刪除自己釋放效能*/
+        }/*場景放入敵人*/
+        var startInputEnemy = setInterval(inputEnemy, 1000);/*每一秒重新放入敵人一次*/
+ 
+
+        function fireBullet() { /*發射子彈的函式，因為要重複發射子彈，因此寫成函式*/
+            var bullet = $("<div>"); /*定義子彈是一個div*/
+            bullet.append(material.bullet) /*bullet的div放入子彈樣式*/
+            bullet.addClass("impactArc");  /*此div增加impactArc的class，供之後碰撞偵測使用*/            
+            bullet.css({ /*增加子彈div要放入的位置*/
+                "position": "absolute",
+                "left": aircraft.position().left + (aircraft.width()), 
+                "top": aircraft.position().top +10  
+            })
+            $(".gameBase").append(bullet); /*遊戲場景放入子彈*/
+            bullet.stop().animate({ left: "+=1360" }, 3000, function() { bullet.remove(); });
+            /*子彈移動方式，會往場景上方位置移動，移出場景後刪除自己釋放效能*/
+        }/*發射子彈*/
+ 
+
+        var playerDir = new Array; /*定義一個陣列存放玩家位置*/
+        var boxDir = new Array; /*定義一個陣列存放敵人位置*/
+ 
+        function impactTest() { /*碰撞偵測函式*/
+ 
+            $.each($(".impact"), function() { /*每一個敵人div都執行以下*/
+                boxDir[0] = $(this).position().top; /*敵人高存入boxDir變數0*/
+                boxDir[1] = $(this).position().left; /*敵人左存入boxDir變數1*/
+                boxDir[2] = $(this).position().top + $(this).height(); /*敵人下存入boxDir變數2*/
+                boxDir[3] = $(this).position().left + $(this).width(); /*敵人右存入boxDir變數3*/
+ 
+                for (i = 0; i < $(".impactArc").length; i++) { /*玩家跟子彈，執行以下*/
+                    playerDir[0] = $(".impactArc").eq(i).position().top; 
+                    playerDir[1] = $(".impactArc").eq(i).position().left; 
+                    playerDir[2] = $(".impactArc").eq(i).position().top + $(".impactArc").height(); 
+                    playerDir[3] = $(".impactArc").eq(i).position().left + $(".impactArc").width();  /*子彈右邊存入變數3*/
+ 
+                    /*偵測敵人是否有跟子彈左右重疊*/
+                    if (playerDir[3] > boxDir[1] && playerDir[1] < boxDir[1] || playerDir[1] > boxDir[1] && playerDir[3] < boxDir[3] || playerDir[1] < boxDir[3] && playerDir[3] > boxDir[3]) { 
+                    /*偵測敵人是否有跟玩家做子彈上下重疊*/      
+                        if (playerDir[0] < boxDir[2] && playerDir[2] > boxDir[2] || playerDir[0] < boxDir[0] && playerDir[2] > boxDir[0] || playerDir[0] < boxDir[2] && playerDir[2] > boxDir[0]) {
+                         /*有的話執行以下*/      
+                            if ($(".impactArc").eq(i).children("div").hasClass("bullet")) {
+                                $(this).remove();/*如果是子彈重疊，表是敵機被打中，移除敵機自己*/
+                                $(".message").text("擊中"); /*在訊息欄顯示擊中*/
+                            } else if ($(".impactArc").eq(i).children("div").hasClass("aircraft")) {
+                                /*如果是跟玩家重疊，表示玩家被撞到*/
+                                $(".message").text("相撞");/*在訊息欄顯示相撞*/
+                            };
+                        }
+                    }
+                }
+ 
+            }); //$.each
+        }/*撞擊檢測函式*/
+ 
+
+        var aircraftStep = 20; /*定義玩家一次能飛多遠px*/
+        function moveDir(dir) { /*玩家移動函式*/
+            switch (dir) {  /*由dir判斷選擇執行哪段動作*/
+                case "left": /*如果dir是left則往左*/
+                    if (aircraft.position().left - aircraftStep > 0) {
+                        /*如果玩家左邊像素減掉一次移動距離大於0，則可往左*/
+                        aircraft.css({
+                            "left": aircraft.position().left - aircraftStep
+                        });
+                    };
+                    break;
+                case "right":/*如果dir是right則往右*/
+                    if (aircraft.position().left + aircraft.width() + aircraftStep < gameStage.width()) {
+                        /*如果玩家右邊像素加上一次移動在加上玩家寬，沒有超出遊戲畫面，則可往右*/
+                        aircraft.css({
+                            "left": aircraft.position().left + aircraftStep
+                        });
+                    };
+                    break;
+                case "up":/*如果dir是up則往上*/
+                    if (aircraft.position().top - aircraftStep > 0) {
+                        /*如果玩家減掉一次移動距離，還未超出遊戲場景上方則可移動*/
+                        aircraft.css({
+                            "top": aircraft.position().top - aircraftStep
+                        });
+                    };
+                    break;
+                case "down":/*如果dir是down則往下*/
+                    if (aircraft.position().top + aircraft.height() + aircraftStep < gameStage.height()) {
+                        /*如果玩家加上一次移動距離再加上玩家高，還未超出遊戲場景下方則可移動*/
+                        aircraft.css({
+                            "top": aircraft.position().top + aircraftStep
+                        });
+                    };
+                    break;
+                default:
+            }
+        }/*移動函式*/
+ 
+        function keyDownHandler(e) {
+            switch (e.keyCode) { /*依據玩家按哪個鍵，執行相對應函式帶入*/
+                case 37:
+                     moveDir("left");
+                    break;
+                case 39:
+                     moveDir("right");
+                    break;
+                case 38:
+                     moveDir("up");
+                    break;
+                case 40:
+                     moveDir("down");
+                    break;
+                default:
+            };           
+        };/*鍵盤觸發*/
+        document.addEventListener("keydown", keyDownHandler, false);/*如果玩家有按鍵盤則執行keyDownHandler*/
+       
+        $(".gamePad > div").click(function (){            
+            switch ($(this).attr("class")) { /*依據玩家按哪個按鈕，執行相對應函式帶入*/
+                case "left":
+                     moveDir("left");
+                    break;
+                case "right":
+                     moveDir("right");
+                    break;
+                case "up":
+                     moveDir("up");
+                    break;
+                case "down":
+                     moveDir("down");
+                    break;
+                default:
+            }  
+        })
+        var impactTestTime = setInterval(function() { /*每130毫秒發射子彈一次，並且運算碰撞程式*/
+            impactTest();
+            fireBullet();
+        }, 130);
+    })
+    </script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
