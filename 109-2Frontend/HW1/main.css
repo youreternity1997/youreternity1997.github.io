@@ -156,3 +156,34 @@ ol{
     width: 650px;
     height:350px;
 }
+
+.carousel-item {
+    height:40rem;
+  }
+.carousel-item > img {
+  align-self: center;
+  margin:0px 80px 0px 80px;
+  width: 480px;
+  height:auto;
+  height: 32rem;
+}
+
+
+/* .carousel-control-prev{
+    margin:0px 0px 0px 0px;
+}
+.carousel-control-next{
+    margin:0px auto 0px 0px;
+}
+.carousel-control-prev-icon{
+    color: red;
+    background-image: none;
+}
+.carousel-control-next-icon{
+    color: red;
+    background-image: none;
+} */
+.visually-hidden{
+    font-size: 32px;
+    color: red;
+}

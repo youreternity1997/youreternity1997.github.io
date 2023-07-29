@@ -19,7 +19,7 @@
                     <div id="introduction">
                         <h2>Haung Wei Hao / 黃偉豪</h2>
                         <!-- <div id="position"><h3>前後端工程師</h3></div> -->
-                        <p class="green_p">前後網頁端工程師</p>
+                        <p class="green_p">AI軟體工程師、資料科學家</p>
                         <div id="school"><h4>學歷 : 台灣大學 生物機電研究所</h4></div>
                         <div id="interest"><h4>專長 : 前端、後端、機器學習 與 深度學習</h4></div>
                         <div id="github">
@@ -45,8 +45,6 @@
                         <li>HTML、CSS、Javascripts</li>
                         <li>Bootstrap</li>
                         <li>JQuery</li>
-                        <li>React.js</li>
-                        <li>Github</li>
                         <li>tkinter</li>
                     </ol>
                 </div>
@@ -54,23 +52,51 @@
                     <p class="skill">Back-end</p>
                     <hr style="width: 350px; height:5px; background-color: black;">
                     <ol>
-                        <li>Python</li>
-                        <li>Node.js</li>
                         <li>My SQL</li>
+                        <li>MongoDB</li>
+                        <li>Node.js</li>
                     </ol>
                 </div>
                 <div class="col-xl">
-                    <p class="skill">AI technology</p>
+                    <p class="skill">Version control</p>
+                    <hr style="width: 350px; height:5px; background-color: black;">
+                    <ol>
+                        <li>git</li>
+                        <li>git flow</li>
+                        <li>github</li>
+                        <li>gitlab</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl">
+                    <p class="skill">Machine learning</p>
+                    <hr style="width: 350px; height:5px; background-color: black;">
+                    <ol>
+                        <li>Scikit-learn</li>
+                        <li>Linear Regression</li>
+                        <li>SVM SVR</li>
+                        <li>Decision Tree</li>
+                        <li>Random Forest</li>
+                        <li>KMeans</li>
+                    </ol>
+                </div>
+                <div class="col-xl">
+                    <p class="skill">Deep learning</p>
                     <hr style="width: 350px; height:5px; background-color: black;">
                     <ol>
                         <li>Keras</li>
                         <li>Tensorflow</li>
                         <li>Pytorch</li>
-                        <li>YOlOv3、YOlOv4、YOlOv5</li>
-                        <li>Segmentation models</li>
+                        <li>caffe</li>
+                        <li>YOlOv1~YOlOv8</li>
+                        <li>Detr</li>
                     </ol>
                 </div>
             </div>
+
+
             <div id="Projects">
                 <p id="header">專案經歷</p>
                 <hr>
@@ -78,13 +104,13 @@
                     <div class='col-xl-5'>
                         <div id='project-1-text-div'>
                             <h4 class="text-title">人工智慧模型模擬麻醉醫生以評估手術中病人的清醒程度</h4>
-                            <p class="project-p">將台大醫院2014年15場手術資料當作實驗資料，並且使用Jupter Notebook軟體中 Python 的scikit-learn機器學習函式庫與其他函式庫等等，使用多種機器學習演算法模擬麻醉醫生以評估手術中病人的清醒程度，在手術中提供執刀醫生更準確的病人麻醉清醒程度。本研究使用多階線性回歸、調整超參數後的決策樹回歸和調整超參數後的隨機森林回歸演算法來模擬三位麻醉醫生並對測試資料進行預測評估，並比較各種回歸模型的決定係數與預測誤差，最終選擇最佳的回歸模型並加以保存，即可在手術中直接預測病人手術中的清醒程度，優化原本臨床上其中一種清醒程度評估方法(腦波雙頻指數(BIS))，提供執刀醫生更準確的病人麻醉清醒程度，避免病人在手術中甦醒且造成病人永遠的心理傷害。</p>
+                            <p class="project-p">將台大醫院2014年120場手術資料當作實驗資料，並且使用Jupter Notebook軟體中 Python 的scikit-learn機器學習函式庫與其他函式庫等等，使用多種機器學習演算法模擬麻醉醫生以評估手術中病人的清醒程度，在手術中提供執刀醫生更準確的病人麻醉清醒程度。本研究使用多階線性回歸、調整超參數後的決策樹回歸和調整超參數後的隨機森林回歸演算法來模擬三位麻醉醫生並對測試資料進行預測評估，並比較各種回歸模型的決定係數與預測誤差，最終選擇最佳的回歸模型並加以保存，即可在手術中直接預測病人手術中的清醒程度，優化原本臨床上其中一種清醒程度評估方法(腦波雙頻指數(BIS))，提供執刀醫生更準確的病人麻醉清醒程度，避免病人在手術中甦醒且造成病人永遠的心理傷害。</p>
                         </div>
                         </div>
                     <div class="col-xl-7">
                         <div id='project-1-imgs-div'>
-                            <img id="img-AI-1" src="./images/AI-1.jpg">
-                            <img id="img-AI-2" src="./images/AI-2.jpg">
+                            <img id="img-AI-1" src="./images/AI-1-1.jpg">
+                            <img id="img-AI-2" src="./images/AI-3.jpg">
                         </div>
                     </div>
                 </div>
@@ -92,10 +118,20 @@
                 <div class="row">
                     <div class='col-xl-5'>
                         <h4 class="text-title">老人跌倒辨識偵測模型</h4>
-                        <p class="project-p">跌倒偵測示警系統將以YOLO為架構，透過CNN卷積網路和SVM技術。CNN卷積網路學習分辨站立、坐姿、跌倒共三個姿態的特徵，接著使用SVM判斷3種姿態影像以進行跌倒偵測系統的人工智慧模型的訓練，藉由CNN卷積網路與SVN的結合，達到更準確的分類效果。可以即時發現，爭取更多的時間，搶救生命。其中隨著台灣邁入老年社會，而照護人員勢必缺乏，這時候藉由AI來輔助，可以省下許多人力，讓長照人員能做更有意義的關懷服務。</p>
+                        <p class="project-p">跌倒偵測示警系統將以YOLO為架構，透過CNN卷積網路和SVM技術。CNN卷積網路學習分辨站立、坐姿、跌倒共三個姿態的特徵，接著使用SVM判斷3種姿態影像以進行跌倒偵測系統的人工智慧模型的訓練，藉由CNN卷積網路與SVM的結合，達到更準確的分類效果。可以即時發現，爭取更多的時間，搶救生命。其中隨著台灣邁入老年社會，而照護人員勢必缺乏，這時候藉由AI來輔助，可以省下許多人力，讓長照人員能做更有意義的關懷服務。</p>
                     </div>
                     <div class="col-xl-7">
                         <img id="img-AI-3" src="./images/Falling_detector.jpg">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='col-xl-5'>
+                        <h4 class="text-title">網站開發作品</h4>
+                        <p class="project-p">主題簡介: 以"電影"為主題的網站，有四大部分，分別為首頁、電影上映行事曆、各電影的精彩片段與射擊遊戲。首頁包含著名大導演簡介、各電影簡介；電影上映行事曆可以新增未來電影上映日期，也可刪除原有的資料；電影的精彩片段可以各別播放電影的精彩片段，也可一起撥放全部的電影精彩片段；射擊遊戲可以操控玩家上下左右移動並發射子彈，透過子彈擊殺飛來的怪物。</p>
+                        <p class="project-p">技術與特色 : 1. 使用JQuery 函式庫。 2. 電影的精彩片段使用YouTube的IFrame Player API，可以讓YouTube影片在網頁上操作並顯示。操作很多元且很方便就可以完成許多的影片播放功能。 3. 射擊遊戲使用document.addEventListener()讀取鍵盤的輸入；使用jQuery的animate()方法，完成動畫的展現；也使用remove()方法，移除超過遊戲邊界的元素(子彈、敵人)。透過種種JQuery函式大大減少程式碼的複雜程度。</p>
+                    </div>
+                    <div class="col-xl-7">
+                        <img id="img-AI-3" src="./images/Web_1.png">
                     </div>
                 </div>
             </div>
