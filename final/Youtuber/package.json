@@ -1,0 +1,5 @@
+"eslintContig":{
+    "globals":{
+        "window":true
+    }    
+}
